@@ -1,15 +1,21 @@
-from setuptools import setup
-import subprocess
-import os.path
+from setuptools import setup,find_packages
+import os
+def get_source_files():
+    for dirname, _, files in os.walk('chunky'):
+        for filename in files:
+            if not filename.endswith('.pyc'):
+                yield os.path.join('/'.join(dirname.split('/')[1:]), filename)
+
 
 setup(
     name='django-chunky',
-    version='0.1.0',
+    version='0.1.1',
     description='Editable content chunks for Django',
     author='Chris Pitzer, Jeff Schwaber, LoFi Art',
     author_email='freyley@gmail.com',
     url='',
-    packages=['chunky'],
+    packages=find_packages(),
+    #include_package_data=True,
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
@@ -21,20 +27,7 @@ setup(
     ],
     zip_safe=False,
     #test_suite='tests.runtests.runtests',
-    package_data={
-        'chunky': [
-            '*.py',
-            'templates/*.html',
-            'templatetags/*.py',
-            'static/*.js',
-            'static/ckeditor/*',
-            'static/ckeditor/*/*',
-            'static/ckeditor/*/*/*',
-            'static/ckeditor/*/*/*/*',
-            'static/ckeditor/*/*/*/*/*',
-            'static/js/*.js',
-            'static/css/*.css',
-            'migrations/*.py',
-        ]
-    },
+    package_data = { 'chunky' : list(get_source_files()) }
+        
+
 )
