@@ -1,0 +1,17 @@
+{% if user.is_superuser %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery.ui.all.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/jquery.juirte.css" rel="stylesheet">
+    <script src="{{ STATIC_URL }}ckeditor/ckeditor.js"></script>
+    <script src="{{ STATIC_URL }}js/underscore-min.js"></script>
+    <script src="{{ STATIC_URL }}chunky.js"></script>
+    <script type="text/template" id="chunky_form_template">
+        <div>
+            <div style="overflow:auto;">
+                <textarea class="blah" id='chunkytextarea'><%= data %></textarea>
+            </div>
+            <button id="save_chunk">save</button>
+        </div>
+    </script>
+    {% csrf_token %}
+{% endif %}
