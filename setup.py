@@ -12,7 +12,7 @@ def get_source_files():
 
 setup(
     name='django-chunky',
-    version='0.1.6',
+    version='0.1.7',
     description='Editable content chunks for Django',
     author='Chris Pitzer, Jeff Schwaber, LoFi Art',
     author_email='freyley@gmail.com',
