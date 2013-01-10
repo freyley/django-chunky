@@ -1,0 +1,9 @@
+recursive-include chunky/templates/ *.html
+recursive-include chunky/static/ *.js
+recursive-include chunky/static/ *.html
+recursive-include chunky/static/ *.css
+recursive-include chunky/static/ *.png
+recursive-include chunky/static/ *.gif
+recursive-include chunky/static/ *.md
+
+
